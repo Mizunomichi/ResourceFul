@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ResourceFul - [PAGE DESCRIPTION]">
+    <meta name="theme-color" content="#D2B48C">
+    <title>ResourceFul - [PAGE TITLE]</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+    
+    <!-- Critical CSS inline for faster load -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+</head>
+<body>
+
+<!-- TEMPLATE INSTRUCTIONS:
+1. Replace [PAGE DESCRIPTION] with your page description
+2. Replace [PAGE TITLE] with your page title
+3. Copy this template for all your HTML pages
+4. Add lazy loading to all images: <img src="path" alt="description" loading="lazy">
+5. Add target="_blank" rel="noopener noreferrer" to external links
+6. Add aria-label to interactive elements
+7. Use semantic HTML (header, nav, main, section, footer)
+-->
+
+<section class="header">
+    <nav>
+        <a href="index.html" aria-label="Home">
+            <img src="images/9.png" alt="ResourceFul Logo" loading="lazy" width="150" height="auto">
+        </a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()" aria-label="Close menu"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>  
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="help.html">HELP</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()" aria-label="Open menu"></i>
+    </nav>
+    
+    <div class="text-box">
+        <h1>[PAGE HEADING]</h1>
+        <p>[PAGE DESCRIPTION]</p>
+        <a href="#content" class="hero-btn">Learn More</a>
+    </div>
+</section>
+
+<!-- MAIN CONTENT GOES HERE -->
+<section class="course" id="content">
+    <!-- Your content here -->
+</section>
+
+<!-- Footer -->
+<section class="footer">
+    <h4>About Us</h4>
+    <p>ResourceFul is your centralized hub for organizing and accessing daily tech resources.<br>
+    We simplify technology to help you focus on what matters most - learning and growing.<br>
+    Join us in making technology accessible to everyone.</p>
+    
+    <div class="icons">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa fa-linkedin"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Optimized JavaScript -->
+<script>
+    (function() {
+        const navLinks = document.getElementById("navLinks");
+        const navLinks3 = document.getElementById("navLinks3");
+        
+        window.showMenu = function() {
+            if (navLinks) navLinks.style.right = "0";
+        };
+        
+        window.hideMenu = function() {
+            if (navLinks) navLinks.style.right = "-200px";
+        };
+        
+        window.showMenu2 = function() {
+            if (navLinks3) navLinks3.style.right = "0";
+        };
+        
+        window.hideMenu2 = function() {
+            if (navLinks3) navLinks3.style.right = "-200px";
+        };
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (navLinks && !event.target.closest('nav') && navLinks.style.right === '0px') {
+                hideMenu();
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>

@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title>Resource.Full</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ResourceFul Shopping - Quick access to popular shopping platforms">
+    <meta name="theme-color" content="#D2B48C">
+    <title>ResourceFul - Shopping</title>
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
 </head>
 <body>    
     <!----SHOPPING---->
@@ -15,7 +22,7 @@
 <section class="header5">
        <nav2>
            <div class="nav-links3" id="navLinks3">
-               <i class="fa fa-times" onclick="hideMenu2()"></i>
+               <i class="fa fa-times" onclick="hideMenu2()" aria-label="Close menu"></i>
               <ul>
                 <li><a href="SEARCH%20ENGINE.html">SEARCH ENGINE</a></li>
                 <li><a href="SOCIAL%20MEDIA.html">SOCIAL MEDIA</a></li>  
@@ -26,38 +33,38 @@
                   <li2><a href="index.html">HOME</a></li2>
                </ul>
            </div>
-           <i class="fa fa-bars" onclick="showMenu2()"></i>
+           <i class="fa fa-bars" onclick="showMenu2()" aria-label="Open menu"></i>
         </nav2>
     
     <div class="text-box3">
-        <h1><br><br>    Technology at its Finest</h1>
+        <h1>Technology at its Finest</h1>
         <p>We give you easier services with just one click</p>
-        <a href="" class="hero-btn"> Visit Us To Know More</a>
+        <a href="#shopping-links" class="hero-btn">Visit Us To Know More</a>
     </div>        
 </section>
 
-    <section class="campus">
+    <section class="campus" id="shopping-links">
     <h1>SHOPPING</h1>
     <p></p>
         <div class="nav-links4" id="nav-links4">
             <ul>
         <div class="row">
             <div class="campus-col">
-            <img src="images/67.jpg">
+            <img src="images/67.jpg" alt="Alibaba" loading="lazy">
                 <div class="layer">
-                    <h3><li><a href="https://www.alibaba.com/">ALIBABA</a></li></h3>
+                    <h3><li><a href="https://www.alibaba.com/" target="_blank" rel="noopener noreferrer">ALIBABA</a></li></h3>
                 </div>
             </div>
             <div class="campus-col">
-            <img src="images/69.jpg">
+            <img src="images/69.jpg" alt="Shopee" loading="lazy">
                 <div class="layer">
-                    <h3><li><a href="https://www.shopee.com/">SHOPEE</a></li></h3>
+                    <h3><li><a href="https://www.shopee.com/" target="_blank" rel="noopener noreferrer">SHOPEE</a></li></h3>
                 </div>
             </div>
             <div class="campus-col">
-            <img src="images/70.jpg">
+            <img src="images/70.jpg" alt="Lazada" loading="lazy">
                 <div class="layer">
-                    <h3><li><a href="https://www.lazada.com/">LAZADA</a></li></h3>
+                    <h3><li><a href="https://www.lazada.com/" target="_blank" rel="noopener noreferrer">LAZADA</a></li></h3>
                 </div>
             </div>
         </div>

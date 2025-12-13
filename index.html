@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title>Resource.Full</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ResourceFul - Innovation Simplified. Organize and access your daily tech resources in one place.">
+    <meta name="theme-color" content="#D2B48C">
+    <title>ResourceFul - Innovation Simplified</title>
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+    
+    <!-- Critical CSS inline for faster load -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
 <section class="header">
        <nav>
-            <a href="index.html"><img src="images/9.png"></a>
+            <a href="index.html" aria-label="Home"><img src="images/9.png" alt="ResourceFul Logo" loading="lazy" width="150" height="auto"></a>
            <div class="nav-links" id="navLinks">
-               <i class="fa fa-times" onclick="hideMenu()"></i>
+               <i class="fa fa-times" onclick="hideMenu()" aria-label="Close menu"></i>
               <ul>
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="">ABOUT</a></li>  
-                <li><a href="">CONTACT</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">HELP</a></li>
+                <li><a href="about.html">ABOUT</a></li>  
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="help.html">HELP</a></li>
                   
                </ul>
            </div>
-           <i class="fa fa-bars" onclick="showMenu()"></i>
+           <i class="fa fa-bars" onclick="showMenu()" aria-label="Open menu"></i>
         </nav>
     
     <div class="text-box">
-        <h1><br><br>    Innovation Simplified</h1>
-        <p>A new era of technology unfolds as we give you new exciting aplications and software</p>
-        <a href="" class="hero-btn"> Visit Us To Know More</a>
+        <h1>Innovation Simplified</h1>
+        <p>A new era of technology unfolds as we give you new exciting applications and software</p>
+        <a href="#services" class="hero-btn">Visit Us To Know More</a>
     
     </div>
     
@@ -38,7 +46,7 @@
     
     <!-----course----->
     
-    <section class="course">
+    <section class="course" id="services">
     <h1>What We Offer</h1>
         <p>IN ONE CLICK</p>
         
@@ -53,7 +61,7 @@
             </div>
             <div class="course-col">
                 <h3>24/7 Solutions</h3>
-                <p>If you're having problems in using our app we also provide you customer support. We will listen to your opinions regarding our app, we always appriciate your ideas and comments to our to make it more better and efficient.</p>
+                <p>If you're having problems using our app, we provide customer support. We listen to your opinions and appreciate your ideas and comments to make it better and more efficient.</p>
             </div>
         </div>
     </section>
@@ -65,7 +73,7 @@
     <!-----Call to Action ----->
     <section class="cta">
     <h1>If you have suggestions</h1>
-    <a href="" class="hero-btn">CONTACT US</a>
+    <a href="contact.html" class="hero-btn">CONTACT US</a>
     
         
         
@@ -78,16 +86,14 @@
     
     
     <!-----Footer----->
-    <br><br><br>
     <section class="footer">
     <h4>About Us</h4>
-        <p>a process by which information is exchanged between individuals through a common system of symbols, signs, <br>or behavior the function of pheromones in insect communication also : exchange of information. <br>b : personal rapport a lack of communication between old and young persons
-        </p>
+        <p>ResourceFul is your centralized hub for organizing and accessing daily tech resources.<br>We simplify technology to help you focus on what matters most - learning and growing.<br>Join us in making technology accessible to everyone.</p>
     <div class="icons">
-        <i class="fa fa-facebook"><a href="https://facebook.com"></a></i>
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-linkedin"></i>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
         </div>
     
     
@@ -99,28 +105,36 @@
     
     
     
-    <!-----JavaScript for Toggle Menu----->
-    <script>
-    
-        var navLinks3 = document.getElementById("navLinks3");
-        function showMenu2(){
-            navLinks3.style.right = "200px";
-        }
-        function hideMenu2(){
-            navLinks3.style.right = "400px";
-        }
-    </script>
-    
     <!-----JavaScript for Toggle Menu------>
     <script>
-    
-        var navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
-        function hideMenu(){
-            navLinks.style.right = "-200px";
-        }
+        // Mobile menu functionality
+        (function() {
+            const navLinks = document.getElementById("navLinks");
+            const navLinks3 = document.getElementById("navLinks3");
+            
+            window.showMenu = function() {
+                if (navLinks) navLinks.style.right = "0";
+            };
+            
+            window.hideMenu = function() {
+                if (navLinks) navLinks.style.right = "-200px";
+            };
+            
+            window.showMenu2 = function() {
+                if (navLinks3) navLinks3.style.right = "0";
+            };
+            
+            window.hideMenu2 = function() {
+                if (navLinks3) navLinks3.style.right = "-200px";
+            };
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (navLinks && !event.target.closest('nav') && navLinks.style.right === '0px') {
+                    hideMenu();
+                }
+            });
+        })();
     </script>
     
         
