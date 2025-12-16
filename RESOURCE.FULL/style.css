@@ -2,13 +2,28 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
+
+/* Optimize font rendering for mobile */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Improve tap targets for mobile */
+a, button {
+    touch-action: manipulation;
+}
+
 .header{
     min-height: 100vh;
-        width: 100%;
-        background-image:  linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/1.jpg);
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/1.jpg);
     background-position: center;
     background-size: cover;
+    background-attachment: scroll; /* Better for mobile performance */
     position: relative;
 }
 nav{
@@ -71,15 +86,20 @@ nav img{
     color: #fff;
     border: 1px solid #fff;
     padding: 12px 34px;
-    font-size: 10px;
+    font-size: 13px;
     background: transparent;
     position: relative;
     cursor: pointer;
+    transition: all 0.3s ease;
+    will-change: background, border-color;
+    /* Improve tap target size for mobile */
+    min-width: 44px;
+    min-height: 44px;
+    line-height: normal;
 }
 .hero-btn:hover{
-    border: 1px solid #D2B48C;
+    border-color: #D2B48C;
     background: #D2B48C;
-    transition: 1s;
 }
 
 nav .fa{
@@ -89,28 +109,34 @@ nav .fa{
 
 @media(max-width: 700px){
     .text-box h1{
-        font-size: 20px;
+        font-size: 28px;
     }
     .nav-links ul li{
         display: block;
     }
     .nav-links{
-        position: absolute;
+        position: fixed; /* Changed from absolute for better mobile behavior */
         background: #D2B48C;
         height: 100vh;
         width: 200px;
         top: 0;
         right: -200px;
         text-align: left;
-        z-index: 2;
-        transition: 1s;
+        z-index: 999;
+        transition: right 0.3s ease;
+        will-change: transform;
+        overflow-y: auto; /* Allow scrolling if content is too long */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
     nav .fa{
         display: block;
         color: #fff;
-        margin: 2px;
-        font-size: 14px;
+        margin: 10px;
+        font-size: 22px;
         cursor: pointer;
+        z-index: 1000;
+        /* Improve tap target */
+        padding: 10px;
     }
     .nav-links ul{
         padding: 30px;
