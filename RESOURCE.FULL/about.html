@@ -26,19 +26,87 @@
            </div>
            <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
-    <h1>About Us</h1>
+    
+    <div class="sub-header-content">
+        <div class="hero-badge">
+            <i class="fa fa-info-circle"></i>
+            <span>Learn About Us</span>
+        </div>
+        <h1>About Us</h1>
+        <p>Discover the story behind ResourceFul and our mission to simplify your digital life</p>
+        <div class="sub-header-stats">
+            <div class="stat-badge">
+                <i class="fa fa-users"></i>
+                <span>10K+ Users</span>
+            </div>
+            <div class="stat-badge">
+                <i class="fa fa-star"></i>
+                <span>4.9 Rating</span>
+            </div>
+            <div class="stat-badge">
+                <i class="fa fa-globe"></i>
+                <span>50+ Countries</span>
+            </div>
+        </div>
+    </div>
     
 </section>  
     <!----about us content---->
-    <section class="about-us">
-        <div class="row">
-        <div class="about-col">
-        <h1>We are an aspiring company </h1>
-            <p>a process by which information is exchanged between individuals through a common system of symbols, signs, or behavior the function of pheromones in insect communication also : exchange of information. b : personal rapport a lack of communication between old and young persons</p>
-            <a href="" class="hero-btn red-btn">EXPLORE NOW</a>
+    <section class="about-us fade-section">
+        <div class="about-intro">
+            <h2>Who We Are</h2>
+            <p class="intro-text">Resource.Full is your centralized hub for organizing and accessing daily tech resources. We simplify technology to help you focus on what matters most—learning, growing, and achieving your goals.</p>
         </div>
-        <div class="about-col">
-            <img src="eduford_img/about.jpg">
+        
+        <div class="row">
+            <div class="about-col">
+                <h1>Empowering Your Digital Journey</h1>
+                <p>We believe technology should be accessible to everyone. Our mission is to curate, organize, and deliver the most useful tech resources in one seamless platform. From search engines to payment systems, entertainment to food delivery—we connect you to everything you need, instantly.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fa fa-rocket"></i>
+                        <h3>Fast Access</h3>
+                        <p>One-click access to all your favorite tools</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa fa-shield"></i>
+                        <h3>Secure & Trusted</h3>
+                        <p>Curated links to verified services</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa fa-mobile"></i>
+                        <h3>Mobile Optimized</h3>
+                        <p>Perfect experience on any device</p>
+                    </div>
+                </div>
+                <a href="index.html" class="hero-btn red-btn">EXPLORE ALL RESOURCES</a>
+            </div>
+            <div class="about-col">
+                <img src="eduford_img/about.jpg" alt="About Resource.Full">
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <h2 class="stat-number">50+</h2>
+                <p class="stat-label">Resources</p>
+                <p class="stat-desc">Carefully curated services</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">24/7</h2>
+                <p class="stat-label">Available</p>
+                <p class="stat-desc">Always at your fingertips</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">100%</h2>
+                <p class="stat-label">Mobile Friendly</p>
+                <p class="stat-desc">Optimized for all devices</p>
+            </div>
+            <div class="stat-card">
+                <h2 class="stat-number">⚡</h2>
+                <p class="stat-label">Lightning Fast</p>
+                <p class="stat-desc">Ultra-optimized performance</p>
             </div>
         </div>
     </section>
@@ -91,6 +159,58 @@
         function hideMenu(){
             navLinks.style.right = "-200px";
         }
+
+        // SECTION FADE-IN ANIMATIONS
+        const fadeObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, fadeObserverOptions);
+
+        document.querySelectorAll('.fade-section, .fade-section-up, .fade-section-left, .fade-section-right, .scale-in').forEach(section => {
+            fadeObserver.observe(section);
+        });
+    </script>
+    <!-- Page transition (fade-in on load, fade-out on navigation) -->
+    <script>
+        (function(){
+            const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!reduce) {
+                window.addEventListener('DOMContentLoaded', () => {
+                    document.body.classList.add('page-enter');
+                });
+            }
+            window.addEventListener('pageshow', (e) => {
+                if (e.persisted && !reduce) {
+                    document.body.classList.remove('page-exit');
+                    document.body.classList.add('page-enter');
+                }
+            });
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
+                if (link.target && link.target.toLowerCase() === '_blank') return;
+                if (link.hasAttribute('download')) return;
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('#')) return;
+                const url = new URL(link.href, window.location.href);
+                if (url.origin !== window.location.origin) return;
+                e.preventDefault();
+                if (!reduce) {
+                    document.body.classList.add('page-exit');
+                    setTimeout(() => { window.location.href = link.href; }, 240);
+                } else {
+                    window.location.href = link.href;
+                }
+            });
+        })();
     </script>
     
         
